@@ -1,0 +1,17 @@
+&lattice
+Lx = 10
+Ly = 10
+/
+
+&simulation_params
+start = "hot"
+Nthermalization = 5000
+Nmeasurements = 100
+Nskip = 200
+algorithm = "metropolis"
+/
+
+&pars
+lambda = 1.0
+epsilon = 1.0
+/
