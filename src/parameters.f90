@@ -10,11 +10,12 @@ module parameters
   real(dp) :: lambda
   real(dp) :: epsilon
 
-  character(100) :: algorithm
+  character(100) :: algorithm, start
 
   namelist /lattice/ Lx, Ly
-  namelist /simulation_params/ Nthermalization,Nmeasurements, Nskip, algorithm
+  namelist /simulation_params/ start,Nthermalization,Nmeasurements, Nskip, algorithm
   namelist /pars/ lambda, epsilon
+  
   
 contains
 

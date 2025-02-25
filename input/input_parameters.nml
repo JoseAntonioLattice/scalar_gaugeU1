@@ -1,13 +1,13 @@
 &lattice
-Lx = 10
-Ly = 10
+Lx = 200
+Ly = 200
 /
 
 &simulation_params
-start = "hot"
-Nthermalization = 5000
-Nmeasurements = 100
-Nskip = 200
+start = "cold"
+Nthermalization = 1000
+Nmeasurements = 500
+Nskip = 10
 algorithm = "metropolis"
 /
 
