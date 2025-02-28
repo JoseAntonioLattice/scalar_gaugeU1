@@ -1,10 +1,10 @@
 &lattice
-Lx = 200
-Ly = 200
+Lx = 100
+Ly = 100
 /
 
 &simulation_params
-start = "cold"
+start = "hot"
 Nthermalization = 1000
 Nmeasurements = 500
 Nskip = 10
@@ -14,4 +14,5 @@ algorithm = "metropolis"
 &pars
 lambda = 1.0
 epsilon = 1.0
+beta = 1.0
 /

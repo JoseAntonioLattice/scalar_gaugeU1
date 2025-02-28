@@ -1,0 +1,72 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\author{José Antonio García Hernández}
+\title{$\lambda \phi^4$ lattice field theory with a U(1) gauge field}
+\begin{document}
+\maketitle
+
+\section{Lagrangian}
+We begin by writing the Lagrangian in Euclidian spacetime with a complex scalar field $\phi(x)\in\mathbb{C}$
+\begin{equation}
+    \mathcal{L} = \frac{1}{2}\left(\partial_{\mu}\phi(x)\right)^* \left(\partial_{\mu}\phi(x)\right)+ \frac{1}{2}m^2\phi(x)^*\phi(x) + \frac{1}{4}\lambda\left(\phi(x)^*\phi(x)\right)^2,
+\end{equation}
+where $\lambda>0$. This Lagrangian posses a U(1) global symmetry $\phi(x) \to \phi(x)' = \Omega\phi(x)$ with $\Omega \in \text{U(1)}$.
+
+We can rewrite the Lagrangian as follows
+\begin{equation}
+    \mathcal{L} = -\frac{1}{2}\left(\phi(x)\partial_{\mu}\right)^*\partial_{\mu}\phi(x) + \frac{1}{2}m^2\phi(x)^*\phi(x) + \frac{1}{4}\lambda\left(\phi(x)^*\phi(x)\right)^2 ,
+\end{equation}
+where we have dropped the total derivative term since it will integrate to zero in the action.
+
+Now we add a gauge field $A_{\mu}(x)\in\mathbb{R}$, that implements the U(1) symmetry locally, and replace the partial derivatives with the covariant derivative defined as
+\begin{equation}
+    D_{\mu} \equiv \partial_{\mu} + iA_{\mu}(x).
+\end{equation}
+
+The Lagrangian now reads
+\begin{equation}
+    \mathcal{L} = -\frac{1}{2}\left(\phi(x) D_{\mu}\right)^*D_{\mu}\phi(x) + \frac{1}{2}m^2\phi(x)^*\phi(x) + \frac{1}{4}\lambda\left(\phi(x)^*\phi(x)\right)^2 + \frac{1}{4}F_{\mu\nu}F_{\mu\nu}.
+\end{equation}
+
+The discrete version of the Lagrangian takes the form 
+\begin{equation}
+    \mathcal{L} = -\frac{1}{2}\left(\phi_x D_{\mu}^-\right)^*D^+_{\mu}\phi_x + \frac{1}{2}m^2\phi_x^*\phi_x + \frac{1}{4}\lambda\left(\phi_x^*\phi_x\right)^2 + \beta\sum_{\mu<\nu}\text{Re} \left[1 - U_{x,\mu\nu} \right].
+\end{equation}
+In order to preserve gauge invariance we have used two discrete versions of the covariant derivative
+\begin{eqnarray}
+    D^+_{\mu}\phi_x = U_{x,\mu}\phi_{x+\hat{\mu}} - \phi_x ,\\
+    D^-_{\mu}\phi_x = \phi_{x} - U_{x-\hat{\mu},\mu} \phi_{x-\hat{\mu}}. 
+\end{eqnarray}
+
+The final form of the Lagragian reads
+\begin{equation}
+    \mathcal{L} = \frac{1}{2}\sum_{\mu}\phi_x^*\left( 2\phi_x - U^*_{x-\hat{\mu},\mu}\phi_{x-\hat{\mu}} - U_{x,\mu}\phi_{x+\hat{\mu}}\right) + \frac{1}{2}m^2\phi_x^*\phi_x + \frac{1}{4}\lambda\left(\phi_x^*\phi_x\right)^2 + \beta\sum_{\mu<\nu}\text{Re} \left[1 - U_{x,\mu\nu} \right].
+\end{equation}
+
+And the action reads
+\begin{eqnarray}
+    S[\phi,U] & = &\sum_x \left\{ d|\phi_x|^2 + \frac{1}{2}m^2|\phi_x|^2 + \frac{1}{4}\lambda |\phi_x|^4 \right\} \nonumber\\
+    & & - \sum_x\sum_{\mu}\text{Re}\left[\phi_x^*\left(U^*_{x-\hat{\mu},\mu}\phi_{x-\hat{\mu}} + U_{x,\mu}\phi_{x+\hat{\mu}}\right)\right]\nonumber \\     
+     & & + \beta\sum_x\sum_{\mu<\nu}\text{Re} \left[1 - U_{x,\mu\nu} \right].
+\end{eqnarray}
+
+\subsection{Updating the fields}
+In the Metropolis algorithm we need the difference in the action by a local update in a field.
+
+An update of the scalar field $\phi_x \to \phi'_x$ leads to 
+\begin{eqnarray}
+    \Delta S & = & \left(d +\frac{m^2}{2} \right)\left( |\phi'_x|^2 - |\phi_x|^2\right) + \frac{\lambda}{4}\left( |\phi'_x|^4 - |\phi_x|^4\right) \nonumber\\
+    & &- 2\text{Re}\left[\sum_{\mu}\left(\phi'_x -\phi_x \right)^*\left(U^*_{x-\hat{\mu},\mu}\phi_{x-\hat{\mu}} + U_{x,\mu}\phi_{x+\hat{\mu}}\right) \right].
+\end{eqnarray}
+
+An update of the gauge field $U_{x,\mu} \to U'_{x,\mu}$ leads to
+\begin{equation}
+    \Delta S = -\text{Re} \left[ (U'_{x,\mu} - U_{x,\mu})\left(\beta\Sigma^*_{x,\mu}+2\phi^*_x \phi_{x+\hat{\mu}}\right)\right]
+\end{equation}
+\end{document}
+

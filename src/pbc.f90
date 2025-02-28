@@ -25,5 +25,32 @@ contains
     ip(L) = 1
     im(1) = L
   end subroutine set_pbc
+
+   function ipf(vector, mu)
+
+    integer(i4), dimension(:), intent(in) :: vector
+    integer(i4) :: mu
+
+    integer(i4), dimension(size(vector)) :: ipf
+    
+    ipf = vector
+
+    ipf(mu) = ip(vector(mu))
+    
+  end function ipf
+
+  function imf(vector, mu)
+
+    integer(i4), dimension(:), intent(in) :: vector
+    integer(i4) :: mu
+
+    integer(i4), dimension(size(vector)) :: imf
+    
+    imf = vector
+
+    imf(mu) = im(vector(mu))
+    
+  end function imf
+ 
   
 end module pbc

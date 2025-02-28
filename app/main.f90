@@ -19,13 +19,14 @@ program lambda_phi4_2d
   call allocate_pbc(Lx)
   allocate(magnetization(Nmeasurements),mag1(Nmeasurements))
   allocate(phi(Lx,Lx))
+  allocate(u(2,Lx,Lx))
   allocate(correlation(Nmeasurements,Lx))
 
-  if ("hot" == start )then
-     call hot_start(phi)
+  if ("hot" == trim(start))then
+     call hot_start(phi,u)
      open(newunit = term_unit,  file = "data/thermalization_hot.dat")
   else if("cold" == start)then
-     call cold_start(phi)
+     call cold_start(phi,u)
      open(newunit = term_unit,  file = "data/thermalization_cold.dat")
   end if
   
@@ -36,8 +37,8 @@ program lambda_phi4_2d
   
   do i = 1, size(msq)
      !call save_configuration(phi,save_unit)
-     call thermalization(phi,Nthermalization,algorithm,[msq(i),lambda],save_unit,term_unit)
-     call take_measurements(phi, Nmeasurements, Nskip, algorithm, [msq(i),lambda], obs_unit, conf_unit)
+     call thermalization(phi,u,Nthermalization,algorithm,[msq(i),lambda,beta],save_unit,term_unit)
+     call take_measurements(phi,u,Nmeasurements, Nskip, algorithm, [msq(i),lambda,beta], obs_unit, conf_unit)
      print*, msq(i), sum(abs(magnetization))/size(magnetization)
   end do
 

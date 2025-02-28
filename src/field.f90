@@ -4,6 +4,6 @@ module field
   implicit none
 
   complex(dp), allocatable, dimension(:,:) :: phi
-  complex(dp), allocatable, dimension(:,:) :: u
+  complex(dp), allocatable, dimension(:,:,:) :: u
   
 end module field
