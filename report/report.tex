@@ -68,5 +68,28 @@ An update of the gauge field $U_{x,\mu} \to U'_{x,\mu}$ leads to
 \begin{equation}
     \Delta S = -\text{Re} \left[ (U'_{x,\mu} - U_{x,\mu})\left(\beta\Sigma^*_{x,\mu}+2\phi^*_x \phi_{x+\hat{\mu}}\right)\right]
 \end{equation}
+
+\subsection{Case $\lambda = 0$}
+We define the operator $\square$
+\begin{equation}
+	\square_{x,y} \equiv (2+m)\delta_{x,y} - U^*_{x-\hat{\mu},\mu}\delta_{x-\hat{\mu},y} - U_{x,\mu}\delta_{x+\hat{\mu},y}  
+\end{equation}
+
+In matrix form,
+\begin{equation}
+\square = \begin{pmatrix}
+	2 + m & -U_{(1,1),2}   & 0 & -U^*_{(1,4),2} & \cdots & 0  \\
+	 -U^*_{1} & 2+m & -U_{2} & \cdots & 0 & 0\\
+	 0 & -U^*_{2} & 2+m & -U_{3} & \cdots & 0 \\
+	 \vdots \\
+	-U_{L} & 0 & \cdots & 0& -U^*_{L-1} & 2+m & 
+\end{pmatrix}
+\end{equation}
+We now write the action in matrix form
+\begin{equation}
+	S = \vec{\phi}^{\dagger}\square\vec{\phi} + \beta\sum_{\mu<\nu}\text{Re} \left[1 - U_{x,\mu\nu} \right]
+\end{equation}
+
+
 \end{document}
 
